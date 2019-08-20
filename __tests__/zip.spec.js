@@ -13,13 +13,16 @@ function cleanFile(file) {
 }
 
 function setupTest() {
-  fs.readdir(path.join(__dirname, '..', 'dist/'), (err, files) => {
-    if (err) throw new Error(err);
+  const archiveDist = path.join(__dirname, '..', 'dist/');
+  fs.readdir(archiveDist, cleanDist);
+}
 
-    if (files) {
-      files.forEach(cleanFile);
-    }
-  });
+function cleanDist(err, files) {
+  if (err) throw new Error(err);
+
+  if (files) {
+    files.forEach(cleanFile);
+  }
 }
 
 describe('gulp zip', () => {
@@ -27,7 +30,8 @@ describe('gulp zip', () => {
 
   it('zips', (done) => {
     zip(() => {
-      fs.readFile(path.join(__dirname, '..', 'dist/archive.zip'), (err, data) => {
+      const zippedArchive = path.join(__dirname, '..', 'dist/archive.zip');
+      fs.readFile(zippedArchive, (err, data) => {
         if (err) done(new Error(err));
 
         if (data) {
