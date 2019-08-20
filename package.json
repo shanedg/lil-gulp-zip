@@ -1,0 +1,19 @@
+{
+  "name": "my-gulp-zip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-zip": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
